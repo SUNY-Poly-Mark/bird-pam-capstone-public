@@ -1,0 +1,29 @@
+﻿# Bytecode / caches
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+.env
+.env.*
+*.egg-info/
+
+# Data (keep repo light)
+data/raw/
+data/external/
+data/interim/
+data/processed/
+models/
+reports/
+mlruns/
+wandb/
+*.npy
+*.pth
+*.pt
+*.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
