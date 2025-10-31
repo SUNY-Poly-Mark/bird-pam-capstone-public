@@ -1,0 +1,53 @@
+project:
+  name: bird-pam
+  seed: 13                # your random seed for reproducibility
+  device: "cpu"           # change to "cuda" if you later use a GPU
+  exp_dir: "reports"      # where to save metrics, plots, logs
+
+data:
+  root: "data"
+  raw_dir: "data/raw"
+  external_dir: "data/external"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  metadata: "conf/metadata.csv"
+  species_list: "conf/species_list.csv"   # will be created in Week 1 later
+  splits:
+    train: "conf/splits/train_ids.txt"
+    val: "conf/splits/val_ids.txt"
+    test_ood: "conf/splits/test_ood_ids.txt"
+
+audio:
+  sample_rate: 32000
+  mono: true
+  window_seconds: 5.0
+  hop_seconds: 2.5
+  n_mels: 128
+  n_fft: 1024
+  hop_length: 320
+  fmin: 50
+  fmax: 12000
+  normalize_per_band: true
+
+features:
+  log_mel: true
+  save_format: "npy"      # save as NumPy array files
+  cache_windows: true
+
+train:
+  batch_size: 32
+  lr: 0.001
+  epochs: 1               # Week 1: test only
+  class_balanced_sampling: true
+  loss: "bce"             # Binary Cross-Entropy
+  augment:
+    spec_augment: true
+    background_mix: true
+    mixup: true
+
+metrics:
+  primary: "pcmAP"        # padded class-mean Average Precision
+  secondary: ["macro_f1", "brier", "fp_per_hour"]
+  thresholding:
+    strategy: "per_class" # or "global"
+    default_threshold: 0.5
