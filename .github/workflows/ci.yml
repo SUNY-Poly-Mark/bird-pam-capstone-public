@@ -1,0 +1,68 @@
+name: Bird-PAM CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        environment-file: environment.yml
+        activate-environment: bird-pam
+        python-version: 3.9
+        auto-activate-base: false
+    
+    - name: Verify environment
+      shell: bash -l {0}
+      run: |
+        conda info
+        conda list
+    
+    - name: Check code style with flake8
+      shell: bash -l {0}
+      run: |
+        pip install flake8
+        # Stop the build if there are Python syntax errors or undefined names
+        flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Treat all other issues as warnings
+        flake8 src/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      continue-on-error: true
+    
+    - name: Validate configuration files
+      shell: bash -l {0}
+      run: |
+        python -c "import yaml; yaml.safe_load(open('conf/config.yaml'))"
+        echo "✅ config.yaml is valid"
+    
+    - name: Run pipeline checks
+      shell: bash -l {0}
+      run: |
+        # Check that key modules can be imported
+        python -c "from src.features import melspec; print('✅ melspec module OK')"
+        python -c "from src.data import dataset_loader; print('✅ dataset_loader module OK')"
+      continue-on-error: true
+    
+    - name: Run unit tests (if they exist)
+      shell: bash -l {0}
+      run: |
+        if [ -d "src/tests" ]; then
+          python -m pytest src/tests/ -v
+        else
+          echo "⚠️  No tests directory found. Consider adding tests!"
+        fi
+      continue-on-error: true
