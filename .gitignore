@@ -1,8 +1,15 @@
-.gitignore
-# Existing entries
-# new entries for Python, audio files, system files, and IDE configurations
+# Bytecode / caches
+__pycache__/
+*.pyc
 *.py[cod]
 *$py.class
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+.env
+.env.*
+*.egg-info/
 .Python
 build/
 develop-eggs/
@@ -19,11 +26,49 @@ wheels/
 *.egg
 .installed.cfg
 MANIFEST
+
+# Data (keep repo light)
+data/raw/
+data/external/
+data/interim/
+data/processed/
+models/
+reports/
+mlruns/
+wandb/
+*.npy
+*.pth
+*.pt
+*.log
+
+# Audio files
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Testing
 .pytest_cache/
 .coverage
 htmlcov/
 *.cover
 .hypothesis/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.spyderproject
+.spyproject
+.ropeproject
+
+# Other
 *.mo
 *.pot
 local_settings.py
@@ -35,16 +80,3 @@ target/
 .python-version
 .celery*
 *.sage.py
-.spyderproject
-.spyproject
-.ropeproject
-*.swp
-*.swo
-*~
-.idea/
-*.sublime-project
-*.sublime-workspace
-*.wav
-*.mp3
-*.flac
-*.ogg
