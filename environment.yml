@@ -1,0 +1,19 @@
+name: bird-pam
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - librosa
+  - matplotlib
+  - scikit-learn
+  - pytorch
+  - torchaudio
+  - tqdm
+  - pyyaml
+  - jupyter
+  - pip
+  - pip:
+    - torch-audiomentations
