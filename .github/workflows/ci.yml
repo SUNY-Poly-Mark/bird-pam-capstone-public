@@ -26,6 +26,7 @@ jobs:
         activate-environment: bird-pam
         python-version: 3.9
         auto-activate-base: false
+        use-mamba: true
     
     - name: Verify environment
       shell: bash -l {0}
