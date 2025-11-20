@@ -1,24 +1,22 @@
 name: bird-pam
 channels:
-  - pytorch
   - conda-forge
   - defaults
 dependencies:
   - python=3.10
   - numpy
   - pandas
-  - pip
-  - cpuonly
-  - pytorch
-  - torchaudio
-  - torchvision
   - scikit-learn
   - matplotlib
   - seaborn
   - tqdm
   - pyyaml
   - jupyter
+  - pip
   - pip:
+      - torch
+      - torchaudio
+      - torchvision
       - librosa==0.10.1
       - soundfile==0.12.1
       - mlflow==2.9.2
