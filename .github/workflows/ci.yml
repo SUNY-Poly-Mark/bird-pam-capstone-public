@@ -27,7 +27,10 @@ jobs:
         python-version: 3.10
         auto-activate-base: false
         use-mamba: true
-        channels: conda-forge,pytorch,defaults
+        channels: |
+          conda-forge
+          pytorch
+          defaults
     
     - name: Verify environment
       shell: bash -l {0}
