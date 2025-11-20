@@ -17,14 +17,14 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.10'
     
     - name: Set up Conda
       uses: conda-incubator/setup-miniconda@v2
       with:
         environment-file: environment.yml
         activate-environment: bird-pam
-        python-version: 3.9
+        python-version: 3.10
         auto-activate-base: false
         use-mamba: true
     
