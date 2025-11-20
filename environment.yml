@@ -4,15 +4,16 @@ channels:
   - defaults
 dependencies:
   - python=3.10
-  - numpy
-  - pandas
-  - scikit-learn
-  - matplotlib
-  - seaborn
-  - tqdm
-  - pyyaml
-  - jupyter
+  - pip
   - pip:
+      - numpy
+      - pandas
+      - scikit-learn
+      - matplotlib
+      - seaborn
+      - tqdm
+      - pyyaml
+      - jupyter
       - torch
       - torchaudio
       - torchvision
