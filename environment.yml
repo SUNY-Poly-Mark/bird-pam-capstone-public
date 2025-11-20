@@ -8,6 +8,7 @@ dependencies:
   - numpy
   - pandas
   - pip
+  - cpuonly
   - pytorch
   - torchaudio
   - torchvision
@@ -16,6 +17,7 @@ dependencies:
   - seaborn
   - tqdm
   - pyyaml
+  - jupyter
   - pip:
       - librosa==0.10.1
       - soundfile==0.12.1
