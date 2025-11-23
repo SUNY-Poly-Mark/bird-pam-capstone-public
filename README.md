@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# Bird-PAM: Bird Sound Classification and Passive Acoustic Monitoring
 
 This repository contains my SUNY Poly DSA 598 Capstone Project.
@@ -18,3 +19,6 @@ reports/           # figures, logs, outputs
 Python 3.12 | NumPy | Pandas | PyTorch | Librosa | Matplotlib | MLflow
 
 **Author:** Mark D’Arcy – SUNY Poly MS in Data Science & Analytics
+=======
+# bird-pam-capstone-public
+>>>>>>> 8b2a214959bdb51db753ff3c5a569aab6c231770
