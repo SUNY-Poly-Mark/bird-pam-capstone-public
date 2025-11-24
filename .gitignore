@@ -32,14 +32,30 @@ data/raw/
 data/external/
 data/interim/
 data/processed/
+data/processed/mels/
 models/
 reports/
+outputs/
 mlruns/
 wandb/
 *.npy
 *.pth
 *.pt
 *.log
+*.json
+!conf/*.json
+!package*.json
+
+# Large datasets
+*.csv
+!conf/metadata.csv
+!conf/species_list.csv
+
+# Training outputs
+training_history.json
+training_curves.png
+best_model.pth
+checkpoint_*.pth
 
 # Audio files
 *.wav

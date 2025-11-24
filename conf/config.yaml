@@ -34,6 +34,9 @@ features:
   save_format: "npy"      # save as NumPy array files
   cache_windows: true
 
+model:
+  dropout: 0.3            # Dropout rate for regularization
+
 train:
   batch_size: 32
   lr: 0.001
